@@ -11,3 +11,109 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.nav-top {
+  background-color: black;
+  height: 28px;
+}
+.nav-dark {
+  background-color: #252c36;
+  height: 70px;
+}
+.text-white {
+  color: white;
+}
+.nav-brand {
+  height: 70px;
+}
+.menu {
+  list-style-type: none;
+  margin-top: 10px;
+}
+.menu-item {
+  display: inline-block;
+  padding-right: 30px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+.footer {
+  list-style-type: none;
+}
+
+
+.footer-item {
+  display: inline-block;
+  padding-right: 40px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+.below-item{
+  color: #8a8c91;
+  font-size: 14px;
+}
+.slider{
+  height: 600px;
+  background-color: #f7f6f1;
+}
+.logos{
+  height: 100px;
+  background-color: white;
+  width: 100%;
+  box-shadow:  0 0 20px -10px;
+}
+
+.list-of-products {
+  height: 550px;
+  width: 100%;
+}
+
+.footer-top {
+  background-color: #252c36;
+  height: 100px;
+}
+.footer-down{
+  background-color: black;
+  height: 30px;
+
+}
+
+.space-from-top {
+  padding-top: 35px;
+}
+.icon-padding{
+  padding-right: 10px;
+}
+.right-padding{
+  padding-right: 30px;
+  margin-top: 10px;
+}
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 600px;
+}
+
+.each-slide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
+
+.home-bg {
+  background-color: #f7f6f1;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  
+}
+
+.grid-item {
+  padding: 9px;
+  font-size: 30px;
+  text-align: center;
+}
