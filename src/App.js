@@ -27,9 +27,6 @@ function App() {
             renders the first one that matches the current URL. */}
         <Navbar />
           <Switch>
-            <Route path="/home">
-              <Home />
-            </Route>
             <Route path="/products">
               <Product />
             </Route>
@@ -38,6 +35,9 @@ function App() {
             </Route>
             <Route path="/contact">
               <Contact />
+            </Route>
+            <Route path="/">
+              <Home />
             </Route>
           </Switch>
           <Footer />

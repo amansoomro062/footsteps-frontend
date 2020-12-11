@@ -41,7 +41,7 @@ class Navbar extends Component {
                         <div className="offset-1 col-lg-6">
                             <ul className="menu">
                                 <li className="menu-item ">
-                                    <Link to="/home" style={{ textDecoration: 'none',color: 'whitesmoke' }}>
+                                    <Link to="/" style={{ textDecoration: 'none',color: 'whitesmoke' }}>
                                         Home
                                     <br />
                                         <span className="below-item">

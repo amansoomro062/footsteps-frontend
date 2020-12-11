@@ -117,3 +117,31 @@ code {
   font-size: 30px;
   text-align: center;
 }
+
+.smoke-bg {
+  background-color: #f7f6f1;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+/* code for new  */
+
+
+.news__main {
+  width: 65%;
+  height: auto;
+  margin: auto;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.news {
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 10px;
+  box-shadow:  0 0 20px -10px;
+  padding: 10px;
+}
+.margin-top-10 {
+  margin-top: 10px;
+}
+

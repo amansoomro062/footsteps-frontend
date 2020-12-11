@@ -4,6 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
+import Brand from './Brands';
 
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
@@ -23,7 +24,7 @@ const imageURL = 'http://localhost:5041/images/brand/';
 class Home extends Component {
 
     state = {
-        brands: [],
+        products: [],
         image1: 'no',
         image2: 'no',
         image3: 'no',
@@ -31,19 +32,21 @@ class Home extends Component {
 
     constructor() {
         super();
-        this.getBrands();
         this.getSlider();
+        this.getProducts();
     }
 
-    getBrands = async () => {
+    getProducts = async () => {
         try {
-            let data = await api.get('/brand').then(({ data }) => data);
-            this.setState({ brands: data })
+            let data = await api.get('/product').then(({ data }) => data);
+            this.setState({ products: data })
             console.log(data);
         } catch (err) {
             console.log(err);
         }
     }
+
+
     getSlider = async () => {
         try {
             let data = await api.get('/slider').then(({ data }) => data);
@@ -71,15 +74,15 @@ class Home extends Component {
                     <div className="slider">
                         <Slide>
                             <div className="each-slide">
-                                <div style={{ 'backgroundImage': `url(${this.state.image1})` }}>
+                                <div style={{ 'backgroundImage': `url(${this.state.image1})` }} key={this.state.image1}>
                                 </div>
                             </div>
                             <div className="each-slide">
-                                <div style={{ 'backgroundImage': `url(${this.state.image2})` }}>
+                                <div style={{ 'backgroundImage': `url(${this.state.image2})` }} key={this.state.image1}>
                                 </div>
                             </div>
                             <div className="each-slide">
-                                <div style={{ 'backgroundImage': `url(${this.state.image3})` }}>
+                                <div style={{ 'backgroundImage': `url(${this.state.image3})` }} key={this.state.image1}>
                                 </div>
                             </div>
                         </Slide>
@@ -87,34 +90,30 @@ class Home extends Component {
                 </div>
 
                 <div className="logos">
-                    <div className="offset-2 col-lg-8">
-
-
-                        {this.state.brands.map(brand =>
-                            <img className="img-fluid right-padding" src={imageURL + brand.brandlogo} alt="" caption="Hello" width="120px" />
-                            // <h1> {imageURL+brand.brandlogo} </h1>
-                        )}
-
-
-                    </div>
+                        <Brand />
                 </div>
 
                 <div className="list-of-products">
 
 
                 <div className="grid-container">
-                        <div className="grid-item">
-                            <span>
-                                    I'm:
-                                    <b>
-                                        Boy
-                                    </b>
-                            </span>
+                    <div className="row">
+                        <div className="col-md-6 col-lg-4 mb-5">
+                            <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                                <p className="product-text">hi</p>
+                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div className="portfolio-item-caption-content text-center text-white">
+                                        hello hi
+                                    </div>
+                                </div>
+                                <img className="img-fluid" src={this.state.products.image} alt="" caption="Hello" />
+                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+        </div>
         );
     }
 }
