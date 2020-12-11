@@ -6,7 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.margin-top-30 {
+  margin-top: 30px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -39,6 +41,13 @@ code {
   list-style-type: none;
 }
 
+.dropdown {
+  margin-left: 20px;
+}
+.product-card {
+  cursor: pointer;
+}
+
 
 .footer-item {
   display: inline-block;
@@ -62,8 +71,9 @@ code {
 }
 
 .list-of-products {
-  height: 550px;
+  height: auto;
   width: 100%;
+  margin-top: 30px;
 }
 
 .footer-top {
@@ -123,6 +133,16 @@ code {
   padding-top: 40px;
   padding-bottom: 30px;
 }
+.product-input {
+  width: 1px;
+
+}
+.float-right{
+  float: right;
+}
+.text-red {
+  color: red;
+}
 /* code for new  */
 
 
@@ -143,5 +163,12 @@ code {
 }
 .margin-top-10 {
   margin-top: 10px;
+}
+
+.margin-top-60 {
+  margin-top: 60px;
+}
+.bg-test{
+  background-color: red;
 }
 

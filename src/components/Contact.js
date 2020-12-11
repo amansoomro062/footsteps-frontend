@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import map from '../images/map.jpg';
 import axios from 'axios';
+import Brand from './Brands';
+
 
 class Contact extends Component {
 
@@ -14,7 +16,10 @@ class Contact extends Component {
     }
     render() {
         return (
-            <div className="smoke-bg row">
+            <div>
+                <Brand />
+                <div className="smoke-bg row">
+                
                 <div className="offset-2 col-lg-4">
 
                 <form id="contactForm" name="sentMessage" onSubmit={this.handleSubmit.bind(this)} method="POST" >
@@ -55,6 +60,8 @@ class Contact extends Component {
                 </div>
 
             </div>
+        
+                </div>
         );
     }
     onNameChange(event) {

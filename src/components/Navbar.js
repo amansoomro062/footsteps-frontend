@@ -45,7 +45,7 @@ class Navbar extends Component {
                                         Home
                                     <br />
                                         <span className="below-item">
-                                            Back to start
+                                        Back to start
                                     </span>
                                     </Link>
                                 </li>

@@ -6,18 +6,20 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 import Brand from './Brands';
 
-import { Slide } from 'react-slideshow-image';
+import Slider from './Slider';
+
 import 'react-slideshow-image/dist/styles.css';
 
 
 // import {adidas} from '../images/brand/adidas';
-import brand from '../images/brand/adidas.jpg';
+import brand from '../images/product/adidas1-q.jpg';
 
 const api = axios.create({
     baseURL: `http://localhost:5041/`
 })
 
-const imageURL = 'http://localhost:5041/images/brand/';
+const imageURL = 'http://localhost:5041/images/product/';
+
 
 
 
@@ -25,90 +27,79 @@ class Home extends Component {
 
     state = {
         products: [],
-        image1: 'no',
-        image2: 'no',
-        image3: 'no',
     }
 
     constructor() {
         super();
-        this.getSlider();
         this.getProducts();
     }
 
     getProducts = async () => {
         try {
-            let data = await api.get('/product').then(({ data }) => data);
+            let data = await api.get('/product?limit=8').then(({ data }) => data);
+            console.log("Data got");
             this.setState({ products: data })
+            // this.state.products = data;
             console.log(data);
         } catch (err) {
             console.log(err);
         }
     }
 
-
-    getSlider = async () => {
-        try {
-            let data = await api.get('/slider').then(({ data }) => data);
-            // console.log(this.state.image1);
-            // this.setState({ slider: data })
-            console.log("done with initialization");
-            console.log(data);
-            this.setState({
-                image1: 'http://localhost:5041/images/slider/' + data[0].sliderimage,
-                image2: 'http://localhost:5041/images/slider/' + data[1].sliderimage,
-                image3: 'http://localhost:5041/images/slider/' + data[2].sliderimage,
-            })
-            // console.log(data[0].sliderimage);
-            // console.log(this.state.image1);
-        } catch (err) {
-            console.log(err);
-        }
-    }
 
 
     render() {
         return (
             <div className="home-bg" >
                 <div className="container">
-                    <div className="slider">
-                        <Slide>
-                            <div className="each-slide">
-                                <div style={{ 'backgroundImage': `url(${this.state.image1})` }} key={this.state.image1}>
-                                </div>
-                            </div>
-                            <div className="each-slide">
-                                <div style={{ 'backgroundImage': `url(${this.state.image2})` }} key={this.state.image1}>
-                                </div>
-                            </div>
-                            <div className="each-slide">
-                                <div style={{ 'backgroundImage': `url(${this.state.image3})` }} key={this.state.image1}>
-                                </div>
-                            </div>
-                        </Slide>
-                    </div>
+                    <Slider />
                 </div>
 
                 <div className="logos">
-                        <Brand />
+                    <Brand />
                 </div>
 
-                <div className="list-of-products">
+                <div className="container list-of-products">
+                
+                <button className="btn btn-secondary dropdown-toggle dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select a brand
+                </button>
+                <button className="btn btn-secondary dropdown-toggle dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort by
+                </button>
 
-
-                <div className="grid-container">
+                <div className=" grid-container margin-top-60">
                     <div className="row">
-                        <div className="col-md-6 col-lg-4 mb-5">
-                            <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                                <p className="product-text">hi</p>
-                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                    <div className="portfolio-item-caption-content text-center text-white">
-                                        hello hi
+                        {this.state.products.map(product =>
+                        
+                        <div className="col-md-6 col-lg-3 mb-5 product-card" key={product._id}>
+
+                            <div className="mx-auto">    
+                                <img className="img-fluid" src={imageURL+product.image} alt="" caption="image" />
+                                
+                                <p className="float-right">Stars</p>
+                                <br />
+                                <br />
+                                {product.model}
+                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100 margin-top-10">
+                                    <div className="portfolio-item-caption-content text-center">
+                        <del>
+                        Old price
+                            </del> - <span className="text-red">{product.pris}</span>
+                                        <br />
+                                        <span className="text-red">
+                                        Save: 65% off
+
+                                        </span>
+                                        <br />
+                                        <button className="btn btn-primary">Add to cart</button>
                                     </div>
                                 </div>
-                                <img className="img-fluid" src={this.state.products.image} alt="" caption="Hello" />
                             </div>
                         </div>
+                    
+                        )}
+
                     </div>
 
                 </div>

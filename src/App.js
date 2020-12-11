@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProductDetails from './components/ProductDetails';
 function App() {
   return (
     <div>
@@ -35,6 +36,10 @@ function App() {
             </Route>
             <Route path="/contact">
               <Contact />
+            </Route>
+            
+            <Route path="/product-details/:id">
+              <ProductDetails />
             </Route>
             <Route path="/">
               <Home />
