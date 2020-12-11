@@ -34,7 +34,9 @@ class Product extends Component {
     render() {
       return (
         <div>
-            <Brand />
+                            <div className="logos">
+                    <Brand />
+                </div>
         <div className="container">
             <br />
             <button className="btn btn-secondary dropdown-toggle dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
