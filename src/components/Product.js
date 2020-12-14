@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Brand from './Brands';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { withRouter } from 'react-router-dom';
-import { useHistory } from 'react-router-dom'
 
 const api = axios.create({
     baseURL: `http://localhost:5041/`

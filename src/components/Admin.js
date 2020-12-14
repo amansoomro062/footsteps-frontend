@@ -19,6 +19,8 @@ const brandId = '5fcd22db62563f2c9495bb35';
 class Admin extends Component {
     state = {
         products: [],
+        genders: [],
+        brands: [],
         addNewProduct: false,
         editProduct: false,
         id: 'NA',
@@ -31,21 +33,53 @@ class Admin extends Component {
         instock: '',
         sizes: [40, 41, 42, 43, 44, 45, 46, 47],
         brand: '5fcd22db62563f2c9495bb35',
-        gender: '5fcd268f62563f2c9495bb3a',
-        image: null
+        gender: '5fcd22db62563f2c9495bb35',
+        image: null,
     }
 
     constructor() {
         super();
+        this.getGenders();
+        
+        this.getBrands();
         this.getProducts();
-        this.deleteProduct = this.deleteProduct.bind(this);
-        
+        this.deleteProduct = this.deleteProduct.bind(this); 
         this.onImageChange = this.onImageChange.bind(this);
-        
-     
     }
+
+    getBrands = async () => {
+        try {
+            let data = await api.get('/brand').then(({ data }) => data);
+            console.log("Data got");
+            this.setState({ brands: data })
+            // this.state.products = data;
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    getGenders = async () => {
+        try {
+            let data = await api.get('/gender').then(({ data }) => data);
+            console.log("Data got");
+            this.setState({ genders: data })
+            // this.state.products = data;
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     onTitleChange(event) {
         this.setState({ title: event.target.value }  )
+    }
+    
+    onBrandChange(event) {
+        this.setState({brand: event.target.value})
+    }
+
+    onGenderChange(event) {
+        this.setState({gender: event.target.value})
     }
     onContentChange(event) {
         this.setState({content: event.target.value }  )
@@ -87,13 +121,11 @@ class Admin extends Component {
             this.state.content = theProduct.content;
             this.state.model = theProduct.model;
             this.state.pris = theProduct.pris;
-
+            this.state.sizes = theProduct.sizes;
             this.state.brand = theProduct.brand;
             this.state.weight = theProduct.weight;
             this.state.image = theProduct.image;
-            this.state.gender = theProduct.gender;
-            this.state.sizes= theProduct.sizes;
-
+            this.state.gender = theProduct.gender;            
             this.state.rabat = theProduct.rabat;
             this.state.instock = theProduct.instock;
 
@@ -146,21 +178,21 @@ class Admin extends Component {
             model: this.state.model,
             brand: this.state.brand,
             pris: this.state.pris,
-            size: this.state.sizes,
             gender: this.state.gender,
             rabat: this.state.rabat,
             brand: this.state.brand,
             weight: this.state.weight,
+            sizes: JSON.stringify(this.state.sizes)
         }
         
         formData.append('product', JSON.stringify(theProduct));
         formData.append('image', this.state.image);
-
         // Display the key/value pairs
         for(const pair of formData.entries()) {
             console.log(pair[0]+ ', '+ pair[1]); 
         }
         console.log(theProduct);
+        console.log(JSON.stringify(theProduct.size));
         // alert("got");
 
         if(this.state.editProduct) {
@@ -173,16 +205,16 @@ class Admin extends Component {
                 headers: {'Content-Type': 'multipart/form-data' }
             }).then((response) => {
                 console.log(response.status);
-                if (response.status === 201) {
+                if (response.status === 201 || response.status === 200 ) {
                     alert("success");
                     // alert("Product saved");
                     // console.log("Saved");
                     this.setState({addNewProduct: false});
-                    this.getProducts();
+                    this.setState({editProduct: false});
+                    this.getProducts();                
                 } else {
                     
                     console.log("Error");
-                    alert("Error")
                 }
             })
 
@@ -238,7 +270,7 @@ class Admin extends Component {
                                 <br/>
                                 <div className="form-group floating-label-form-group controls mb-0 pb-1">
                                     <label>Title</label>
-                                    <input className="form-control" id="name" type="text" 
+                                    <input className="form-control" id="title" type="text" 
                                     value={this.state.title} onChange={this.onTitleChange.bind(this)} 
                                     placeholder="Enter title" required="required" data-validation-required-message="Enter title." />
                                     <p className="help-block text-danger"></p>
@@ -246,7 +278,7 @@ class Admin extends Component {
 
                                 <div className="form-group floating-label-form-group controls mb-0 pb-1">
                                     <label>Content</label>
-                                    <input className="form-control" id="name" type="text" 
+                                    <input className="form-control" id="content" type="text" 
                                     value={this.state.content} onChange={this.onContentChange.bind(this)} 
                                     placeholder="Enter content" required="required" data-validation-required-message="Enter content." />
                                     <p className="help-block text-danger"></p>
@@ -254,7 +286,7 @@ class Admin extends Component {
 
                                 <div className="form-group floating-label-form-group controls mb-0 pb-1">
                                     <label>Pris</label>
-                                    <input className="form-control" id="name" type="number" 
+                                    <input className="form-control" id="pris" type="number" 
                                     value={this.state.pris} onChange={this.onPrisChange.bind(this)} 
                                     placeholder="Enter pris" required="required" data-validation-required-message="Enter pris." />
                                     <p className="help-block text-danger"></p>
@@ -262,7 +294,7 @@ class Admin extends Component {
 
                                 <div className="form-group floating-label-form-group controls mb-0 pb-1">
                                     <label>Model</label>
-                                    <input className="form-control" id="name" type="text" 
+                                    <input className="form-control" id="model" type="text" 
                                     value={this.state.model} onChange={this.onModelChange.bind(this)} 
                                     placeholder="Enter model" required="required" data-validation-required-message="Enter model." />
                                     <p className="help-block text-danger"></p>
@@ -270,15 +302,39 @@ class Admin extends Component {
 
                                 <div className="form-group floating-label-form-group controls mb-0 pb-1">
                                     <label>Rabat</label>
-                                    <input className="form-control" id="name" type="number" 
+                                    <input className="form-control" id="rabat" type="number" 
                                     value={this.state.rabat} onChange={this.onRabatChange.bind(this)} 
                                      placeholder="Enter rabat" required="required" data-validation-required-message="Enter rabat." />
                                     <p className="help-block text-danger"></p>
                                 </div>
 
                                 <div className="form-group floating-label-form-group controls mb-0 pb-1">
+                                    <label>Gender</label>
+                                    <select onChange={this.onGenderChange.bind(this)}>
+                                    {this.state.genders.map(gender =>
+                                        <option key={gender._id} value={gender._id}>
+                                            {gender.gender}
+                                        </option>
+                                    )}
+                                    </select>
+                                </div>
+
+
+                                <div className="form-group floating-label-form-group controls mb-0 pb-1">
+                                    <label>Brand</label>
+                                    <select onChange={this.onBrandChange.bind(this)}>
+                                    {this.state.brands.map(brand =>
+                                        <option value={brand._id} >
+                                            {brand.brandname}
+                                        </option>
+                                    )}
+                                    </select>
+                                </div>
+
+
+                                <div className="form-group floating-label-form-group controls mb-0 pb-1">
                                     <label>Weight</label>
-                                    <input className="form-control" id="name" type="number" value={this.state.weight} 
+                                    <input className="form-control" id="weight" type="number" value={this.state.weight} 
                                     onChange={this.onWeightChange.bind(this)} placeholder="Enter weight" required="required"
                                      data-validation-required-message="Enter weight." />
                                     <p className="help-block text-danger"></p>
@@ -287,7 +343,7 @@ class Admin extends Component {
                                 
                                 <div className="form-group floating-label-form-group controls mb-0 pb-1">
                                     <label>In Stock</label>
-                                    <input className="form-control" id="name" type="number" value={this.state.instock} 
+                                    <input className="form-control" id="instock" type="number" value={this.state.instock} 
                                     onChange={this.onStockChange.bind(this)} placeholder="Enter In stock" 
                                     required="required" data-validation-required-message="Enter In Stock." />
                                     <p className="help-block text-danger"></p>

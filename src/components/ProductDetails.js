@@ -9,7 +9,6 @@ function ProductDetails() {
     let location = useLocation();
     
     console.log(location);
-
       return (
         <div className="offset-1 container">
             <br/>

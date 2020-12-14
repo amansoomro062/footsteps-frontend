@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+import { Link } from 'react-router-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { fab } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 import Brand from './Brands';
 
 import Slider from './Slider';
 
 import 'react-slideshow-image/dist/styles.css';
-
-
-// import {adidas} from '../images/brand/adidas';
-import brand from '../images/product/adidas1-q.jpg';
 
 const api = axios.create({
     baseURL: `http://localhost:5041/`
@@ -27,12 +21,15 @@ class Home extends Component {
 
     state = {
         products: [],
+        genders: [],
     }
 
     constructor() {
         super();
         this.getProducts();
     }
+
+
 
     getProducts = async () => {
         try {
@@ -73,7 +70,12 @@ class Home extends Component {
                         {this.state.products.map(product =>
                         
                         <div className="col-md-6 col-lg-3 mb-5 product-card" key={product._id}>
-
+<Link   to={
+                        {     
+                            pathname: '/product-details',
+                            product: product
+                        }
+                   }> 
                             <div className="mx-auto">    
                                 <img className="img-fluid" src={imageURL+product.image} alt="" caption="image" />
                                 
@@ -96,6 +98,7 @@ class Home extends Component {
                                     </div>
                                 </div>
                             </div>
+                        </Link>
                         </div>
                     
                         )}
