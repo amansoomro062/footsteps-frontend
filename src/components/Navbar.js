@@ -37,8 +37,8 @@ class Navbar extends Component {
                         <div className="offset-1 col-lg-4 text-white">
                             <img src={brand} className="nav-brand" />
                         </div>
-
-                        <div className="offset-1 col-lg-6">
+                        
+                        <div className="col-lg-7">
                             <ul className="menu">
                                 <li className="menu-item ">
                                     <Link to="/" style={{ textDecoration: 'none',color: 'whitesmoke' }}>
@@ -76,6 +76,16 @@ class Navbar extends Component {
                                     <br />
                                         <span className="below-item">
                                             Contact information
+                                    </span>
+                                    </Link>
+                                </li>
+
+                                <li className="menu-item ">
+                                    <Link to="/admin" style={{ textDecoration: 'none',color: 'whitesmoke' }}>
+                                        Admin
+                                    <br />
+                                        <span className="below-item">
+                                            Manage products
                                     </span>
                                     </Link>
                                 </li>

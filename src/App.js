@@ -8,6 +8,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Product from './components/Product';
 
+import Admin from './components/Admin';
+
 // router 
 import {
   BrowserRouter as Router,
@@ -28,19 +30,24 @@ function App() {
             renders the first one that matches the current URL. */}
         <Navbar />
           <Switch>
-            <Route path="/products">
-              <Product />
-            </Route>
             <Route path="/news">
               <News />
             </Route>
             <Route path="/contact">
               <Contact />
             </Route>
+
+            <Route path="/products/:id" component={ ProductDetails } />
             
-            <Route path="/product-details/:id">
+            <Route exact path="/product-details">
               <ProductDetails />
             </Route>
+            <Route path="/products" exact component={ Product } />
+
+            <Route path="/admin">
+              <Admin />
+            </Route>
+
             <Route path="/">
               <Home />
             </Route>

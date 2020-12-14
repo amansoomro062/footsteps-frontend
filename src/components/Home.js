@@ -88,7 +88,7 @@ class Home extends Component {
                             </del> - <span className="text-red">{product.pris}</span>
                                         <br />
                                         <span className="text-red">
-                                        Save: 65% off
+                                        Save: {product.rabat}% off
 
                                         </span>
                                         <br />

@@ -172,3 +172,6 @@ code {
   background-color: red;
 }
 
+.checked{
+  color: orange;  
+}
