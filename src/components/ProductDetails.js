@@ -10,7 +10,7 @@ function ProductDetails() {
     
     console.log(location);
       return (
-        <div className="offset-1 container">
+        <section className="offset-1 container">
             <br/>
             <br/>
             <div className="row">
@@ -69,7 +69,7 @@ function ProductDetails() {
               </section>
               <br/>
               <br/>
-        </div>
+        </section>
         );
     }
 export default ProductDetails;

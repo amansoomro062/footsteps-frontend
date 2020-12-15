@@ -47,7 +47,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="home-bg" >
+            <section className="home-bg" >
                 <div className="container">
                     <Slider />
                 </div>
@@ -107,7 +107,7 @@ class Home extends Component {
 
                 </div>
             </div>
-        </div>
+        </section>
         );
     }
 }

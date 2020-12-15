@@ -40,7 +40,7 @@ class Product extends Component {
     }
     render() {
         return (
-            <div>
+            <section>
                 <div className="logos">
                     <Brand />
                 </div>
@@ -109,7 +109,7 @@ class Product extends Component {
 
                     </div>
                 </div>
-            </div>
+            </section>
 
         );
     }

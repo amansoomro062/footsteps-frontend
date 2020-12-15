@@ -33,13 +33,13 @@ class Brand extends Component {
             // <div className="container">
             //     <h2>Hi, I am a News!</h2>
             // </div>
-            <div className="offset-2 col-lg-8">
+            <section className="offset-2 col-lg-8">
 
                 {this.state.brands.map(brand =>
                     <img className="img-fluid right-padding" src={imageURL + brand.brandlogo} alt="" caption="Hello" width="120px" key={brand.brandlogo} />
                     // <h1> {imageURL+brand.brandlogo} </h1>
                 )}
-            </div>
+            </section>
         );
     }
 }

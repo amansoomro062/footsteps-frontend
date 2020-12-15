@@ -16,7 +16,7 @@ class Contact extends Component {
     }
     render() {
         return (
-            <div>
+            <section>
                 <div className="logos">
                     <Brand />
                 </div>
@@ -63,7 +63,7 @@ class Contact extends Component {
 
                 </div>
 
-            </div>
+            </section>
         );
     }
     onNameChange(event) {

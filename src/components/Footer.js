@@ -8,7 +8,7 @@ import { faCcAmazonPay, faCcAmex, faCcMastercard, faCcPaypal, faCcVisa, faPaypal
 class Footer extends Component {
     render() {
       return (
-        <div>
+        <footer>
             <div className="footer-top">
                 {/* <div className="row"> */}
                     
@@ -60,7 +60,7 @@ class Footer extends Component {
                 </div>
 
             </div>
-        </div>
+        </footer>
 
         );
     }

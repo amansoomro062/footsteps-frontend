@@ -246,7 +246,7 @@ class Admin extends Component {
     render() {
         const isNew = this.state.addNewProduct
       return (
-        <div>
+        <section>
                             <div className="logos">
                     <Brand />
                 </div>
@@ -433,7 +433,7 @@ class Admin extends Component {
 
                 </div>
         </div>
-        </div>
+        </section>
 
         );
     }

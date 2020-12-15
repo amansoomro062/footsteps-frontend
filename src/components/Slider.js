@@ -42,7 +42,7 @@ class Slider extends Component {
     }
     render() {
         return (
-            <div className="slider">
+            <section className="slider">
                 <Slide>
                     <div className="each-slide">
                         <div style={{ 'backgroundImage': `url(${this.state.image1})` }} key={this.state.image1}>
@@ -57,7 +57,7 @@ class Slider extends Component {
                         </div>
                     </div>
                 </Slide>
-            </div>
+            </section>
         );
     }
 }

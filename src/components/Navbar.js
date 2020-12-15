@@ -11,7 +11,7 @@ class Navbar extends Component {
     render() {
         return (
 
-            <div>
+            <header>
                 <div className="col-lg-12 nav-top row m-0">
                     <div className="offset-2 col-lg-4">
                         <FontAwesomeIcon icon={faCcPaypal} size="2x" className="icon-padding"  />
@@ -111,7 +111,7 @@ class Navbar extends Component {
                     <Link to="/contact">Contact</Link>
                 </li>
           </ul> */}
-            </div>
+            </header>
         );
     }
 }

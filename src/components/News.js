@@ -34,7 +34,7 @@ class News extends Component {
 
     render() {
         return (
-            <div>
+            <section>
                 <div className="logos">
                     <Brand />
                 </div>
@@ -59,7 +59,7 @@ class News extends Component {
 
                 </main>
 
-            </div>
+            </section>
 
         );
     }
