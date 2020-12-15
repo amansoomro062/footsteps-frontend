@@ -17,10 +17,6 @@ class Product extends Component {
         selectedProduct: null
     }
 
-    // nextPath(path) {
-    //     this.props.history.push(path);
-    // }
-
     constructor() {
         super();
         this.getProducts();
@@ -52,14 +48,6 @@ class Product extends Component {
                     <button className="btn btn-secondary dropdown-toggle dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sort by
             </button>
-                    {/* <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div> */}
-
-
-
                     <div className=" grid-container margin-top-60">
                         <div className="row">
 

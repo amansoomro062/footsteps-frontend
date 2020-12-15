@@ -10,7 +10,6 @@ import Product from './components/Product';
 
 import Admin from './components/Admin';
 
-// router 
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,10 +23,7 @@ function App() {
   return (
     <div>
 
-      {/*  */}
       <Router>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Navbar />
           <Switch>
             <Route path="/news">

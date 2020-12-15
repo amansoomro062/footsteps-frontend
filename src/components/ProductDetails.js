@@ -1,7 +1,4 @@
 import React from 'react';
-// import logo from '../images/product/adidas1-q.jpg';
-// import { withRouter } from 'react-router-dom';
-// import queryString from 'query-string';
 import {useLocation} from "react-router-dom";
 function ProductDetails() {
     

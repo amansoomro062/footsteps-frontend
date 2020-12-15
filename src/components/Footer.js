@@ -3,9 +3,44 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     Link
 } from "react-router-dom";
+import axios from 'axios';
 import { faCcAmazonPay, faCcAmex, faCcMastercard, faCcPaypal, faCcVisa, faPaypal } from '@fortawesome/free-brands-svg-icons';
 
 class Footer extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+        }
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+
+        axios({
+            method: "POST",
+            url: "http://localhost:5041/newssubscription",
+            data: this.state
+        }).then((response) => {
+            console.log(response.status);
+            if (response.status === 201) {
+                alert("Thank you!");
+                this.resetForm();
+            } else {
+
+                console.log("Message failed");
+                alert("Message failed to send.")
+            }
+        })
+    }
+
+    resetForm() {
+        this.setState({ name: '', email: '', phonenumber: '', message: '' })
+    }
+    onEmailChange(event) {
+        this.setState({ email: event.target.value })
+    }
     render() {
         return (
             <footer>
@@ -13,7 +48,23 @@ class Footer extends Component {
                     {/* <div className="row"> */}
 
                     <div className="offset-lg-7 offset-sm-2 offset-xs-2 offset-md-3 col-lg-4 text-white space-from-top">
-                        Sign up for newsletter &nbsp; &nbsp; <input type="text" placeholder="Enter email..." />
+                         
+                        <form id="newsLetterForm" name="newsletter" onSubmit={this.handleSubmit.bind(this)} method="POST" >
+                            <div className="control-group">
+                                <div className="form-group floating-label-form-group  pb-2">
+                                    <label>Sign up for newsletter </label>
+                                    <div className="col-lg-8">
+                                        <input className="form-control" id="email" type="email" value={this.state.email} onChange={this.onEmailChange.bind(this)} placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address." />
+                                    </div>
+                                    <div className="col-lg-3">
+                                    <button className="btn btn-primary " id="sendMessageButton" type="submit">Send</button> 
+                            
+                                    </div>
+
+                                </div>    
+                            </div>
+                        </form>
+                   
                     </div>
                     {/* </div> */}
                 </div>

@@ -77,7 +77,6 @@ class News extends Component {
                             <i>{temp_news.created} </i>
 
                             <p className="margin-top-10">
-                                {/* {temp_news.bodytext} */}
                                 {temp_news.teaser}
                             </p>
                         </section>

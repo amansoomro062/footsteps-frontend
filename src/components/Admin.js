@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
 import Brand from './Brands';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 const api = axios.create({
@@ -11,8 +8,6 @@ const api = axios.create({
 })
 
 const imageURL = 'http://localhost:5041/images/product/';
-// const genderId = '5fcd268f62563f2c9495bb3a';
-// const brandId = '5fcd22db62563f2c9495bb35';
 
 
 
@@ -137,6 +132,7 @@ class Admin extends Component {
             console.log(err);
         }
     }
+
     deleteProduct = async (id) => {        
         try {
             let data = await api.delete(`http://localhost:5041/product/admin/${id}`).then(({ data }) => data);
@@ -169,7 +165,6 @@ class Admin extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // console.log(this.state.title+" - "+this.state.content+" - "+ this.state.image);
         const formData = new FormData(event.target);
         
         const theProduct = {
@@ -187,14 +182,12 @@ class Admin extends Component {
         
         formData.append('product', JSON.stringify(theProduct));
         formData.append('image', this.state.image);
-        // Display the key/value pairs
         for(const pair of formData.entries()) {
             console.log(pair[0]+ ', '+ pair[1]); 
         }
         console.log(theProduct);
         console.log(JSON.stringify(theProduct.size));
-        // alert("got");
-
+       
         if(this.state.editProduct) {
 
 
@@ -207,8 +200,6 @@ class Admin extends Component {
                 console.log(response.status);
                 if (response.status === 201 || response.status === 200 ) {
                     alert("success");
-                    // alert("Product saved");
-                    // console.log("Saved");
                     this.setState({addNewProduct: false});
                     this.setState({editProduct: false});
                     this.getProducts();                
@@ -228,9 +219,8 @@ class Admin extends Component {
             }).then((response) => {
                 console.log(response.status);
                 if (response.status === 201) {
-                    // alert("Product saved");
-                    // console.log("Saved");
-                    this.setState({addNewProduct: false});
+                    this.setState({addNewProduct: false});   
+                    this.setState({editProduct: false});
                     this.getProducts();
                 } else {
                     
@@ -238,9 +228,26 @@ class Admin extends Component {
                     alert("Error")
                 }
             })
+            this.resetForm();
 
         }
         
+    }
+
+    resetForm() {
+        this.state.id = '';
+            this.state.title = '';
+            this.state.content = '';
+            this.state.model = '';
+            this.state.pris = '';
+            this.state.sizes = '';
+            this.state.brand = '';
+            this.state.weight = '';
+            this.state.image = '';
+            this.state.gender = '';            
+            this.state.rabat = '';
+            this.state.instock = '';
+
     }
 
     render() {
@@ -257,7 +264,10 @@ class Admin extends Component {
             </button>
             &nbsp;
             {isNew === true &&
-            <button className="btn btn-danger" type="button" onClick={()=> this.setState({addNewProduct: false})}>
+            <button className="btn btn-danger" type="button" onClick={()=> this.setState(
+                {addNewProduct: false,
+                editProduct: false})}
+                >
                 Cancel
             </button>
         
@@ -373,12 +383,7 @@ class Admin extends Component {
                 </h1>
                 </div>
             }
-  {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a className="dropdown-item" href="#">Action</a>
-    <a className="dropdown-item" href="#">Another action</a>
-    <a className="dropdown-item" href="#">Something else here</a>
-  </div> */}
-
+  
 
 
             <div className=" grid-container margin-top-60">
@@ -423,10 +428,7 @@ class Admin extends Component {
                         )}
 
 
-{/* <FontAwesomeIcon icon={faPlus} size="10x" className="icon-padding"  /> */}
-{/* new product code */}
 
-                    {/* <i className="fas fa-plus fa-3x"></i> */}
                     
 
                     </div>

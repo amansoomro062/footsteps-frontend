@@ -30,19 +30,15 @@ class Brand extends Component {
 
     render() {
         return (
-            // <div className="container">
-            //     <h2>Hi, I am a News!</h2>
-            // </div>
-            <section >
-                <div className="offset-2 row">
-                    <div className=" col-lg-12">
-                    {this.state.brands.map(brand =>
-                        <img className="img-fluid right-padding" src={imageURL + brand.brandlogo} alt="" caption="Hello" width="120px" key={brand.brandlogo} />
-                    )}
-                    </div>
+        <div>
+            <div className="offset-2">
+            {this.state.brands.map(brand =>
+                <img className="img-fluid right-padding" src={imageURL + brand.brandlogo} alt="" caption="Hello" width="120px" key={brand.brandlogo} />
+            )}
+            </div>
 
-                </div>
-            </section>
+        </div>
+    
         );
     }
 }

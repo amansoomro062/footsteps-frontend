@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import brand from '../images/brand.jpg';
-// font aweomse import
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     Link
 } from "react-router-dom";
 
-//specific icons from font awesome
 import { faInstagram, faTelegram, faLinkedin,faCcAmazonPay, faCcAmex, faCcMastercard, faCcPaypal, faCcVisa, faDigg, faFacebookSquare, faPaypal, faTwitter, faWhatsapp, faSkype } from '@fortawesome/free-brands-svg-icons';
 
 

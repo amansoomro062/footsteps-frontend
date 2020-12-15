@@ -25,8 +25,6 @@ class Slider extends Component {
     getSlider = async () => {
         try {
             let data = await api.get('/slider').then(({ data }) => data);
-            // console.log(this.state.image1);
-            // this.setState({ slider: data })
             console.log("done with initialization");
             console.log(data);
             this.setState({
@@ -34,8 +32,6 @@ class Slider extends Component {
                 image2: 'http://localhost:5041/images/slider/' + data[1].sliderimage,
                 image3: 'http://localhost:5041/images/slider/' + data[2].sliderimage,
             })
-            // console.log(data[0].sliderimage);
-            // console.log(this.state.image1);
         } catch (err) {
             console.log(err);
         }
