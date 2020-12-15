@@ -15,7 +15,10 @@ function ProductDetails() {
             <br/>
             <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 center my-auto padding-top-70 padding-bottom-70" >
-                    <img src={`http://localhost:5041/images/product/${location.product.image}`}/>   
+                    <h3>
+                        {location.product.title}
+                    </h3>
+                    <img src={`http://localhost:5041/images/product/${location.product.image}`} className="img-fluid"/>   
                 </div>
             
                 <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 center my-auto padding-top-70 padding-bottom-70" >

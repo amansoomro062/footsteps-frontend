@@ -34,7 +34,7 @@ code {
 }
 .menu-item {
   display: inline-block;
-  padding-right: 30px;
+  padding-right: 15px;
   color: whitesmoke;
   text-decoration: none;
 }
@@ -52,7 +52,7 @@ code {
 
 .footer-item {
   display: inline-block;
-  padding-right: 40px;
+  padding-right: 20px;
   color: whitesmoke;
   text-decoration: none;
 }
@@ -79,11 +79,11 @@ code {
 
 .footer-top {
   background-color: #252c36;
-  height: 100px;
+  height: auto;
 }
 .footer-down{
   background-color: black;
-  height: 30px;
+  height: auto;
 
 }
 
@@ -94,7 +94,7 @@ code {
   padding-right: 10px;
 }
 .right-padding{
-  padding-right: 30px;
+  padding-right: 15px;
   margin-top: 10px;
 }
 
@@ -151,7 +151,9 @@ code {
   width: 65%;
   height: auto;
   margin: auto;
-  padding: 10px;
+  padding-top: 10px;
+  
+  padding-bottom: 10px;
   margin-top: 20px;
 }
 
@@ -160,7 +162,8 @@ code {
   height: fit-content;
   margin-bottom: 10px;
   box-shadow:  0 0 20px -10px;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .margin-top-10 {
   margin-top: 10px;
