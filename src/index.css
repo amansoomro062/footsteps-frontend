@@ -175,3 +175,6 @@ code {
 .checked{
   color: orange;  
 }
+.pointer{
+  cursor: pointer;
+}

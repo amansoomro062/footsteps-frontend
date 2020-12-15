@@ -79,9 +79,13 @@ class Home extends Component {
                             <div className="mx-auto">    
                                 <img className="img-fluid" src={imageURL+product.image} alt="" caption="image" />
                                 
-                                <p className="float-right">Stars</p>
-                                <br />
-                                <br />
+                                <p>
+                                <span className="fa fa-star checked fa-lg"></span>
+                                <span className="fa fa-star checked fa-lg" ></span>
+                                <span className="fa fa-star checked fa-lg"></span>
+                                <span className="fa fa-star fa-lg"></span>
+                                <span className="fa fa-star fa-lg"></span>
+                                </p>
                                 {product.model}
                                 <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100 margin-top-10">
                                     <div className="portfolio-item-caption-content text-center">

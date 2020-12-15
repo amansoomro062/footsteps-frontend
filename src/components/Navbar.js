@@ -12,7 +12,7 @@ class Navbar extends Component {
         return (
 
             <header>
-                <div className="col-lg-12 nav-top row m-0">
+                <div className="col-lg-12  nav-top row m-0">
                     <div className="offset-2 col-lg-4">
                         <FontAwesomeIcon icon={faCcPaypal} size="2x" className="icon-padding"  />
                         <FontAwesomeIcon icon={faCcMastercard} size="2x" className="icon-padding" />
