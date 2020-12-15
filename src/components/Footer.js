@@ -24,13 +24,32 @@ class Footer extends Component {
             data: this.state
         }).then((response) => {
             console.log(response.status);
-            if (response.status === 201) {
+            if (response.status === 201 || response.status === 200) {
                 alert("Thank you!");
                 this.resetForm();
             } else {
 
                 console.log("Message failed");
                 alert("Message failed to send.")
+            }
+        })
+    }
+
+    unsub(event) {
+        event.preventDefault();
+
+        axios({
+            method: "DELETE",
+            url: "http://localhost:5041/newssubscription/afmeld/"+this.state.email,
+        }).then((response) => {
+            console.log(response.status);
+            if (response.status === 201 || response.status === 200) {
+                alert("unsubscribed");
+                this.resetForm();
+            } else {
+
+                console.log("unable to unsubscribe");
+                alert("unable to unsub.")
             }
         })
     }
@@ -59,6 +78,10 @@ class Footer extends Component {
                                     <div className="col-lg-3">
                                     <button className="btn btn-primary " id="sendMessageButton" type="submit">Send</button> 
                             
+                                    <button className="btn btn-danger" type="button" onClick={this.unsub.bind(this)}>
+                Unsubscribe
+            </button>
+
                                     </div>
 
                                 </div>    

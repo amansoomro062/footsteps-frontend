@@ -123,8 +123,6 @@ class Admin extends Component {
             this.state.gender = theProduct.gender;            
             this.state.rabat = theProduct.rabat;
             this.state.instock = theProduct.instock;
-
-
             this.setState({addNewProduct : true});
             console.log(theProduct);
             this.getProducts();
@@ -199,9 +197,7 @@ class Admin extends Component {
             }).then((response) => {
                 console.log(response.status);
                 if (response.status === 201 || response.status === 200 ) {
-                    alert("success");
-                    this.setState({addNewProduct: false});
-                    this.setState({editProduct: false});
+                    this.resetForm();
                     this.getProducts();                
                 } else {
                     
@@ -221,6 +217,8 @@ class Admin extends Component {
                 if (response.status === 201) {
                     this.setState({addNewProduct: false});   
                     this.setState({editProduct: false});
+                    
+                    this.resetForm();
                     this.getProducts();
                 } else {
                     
@@ -228,7 +226,6 @@ class Admin extends Component {
                     alert("Error")
                 }
             })
-            this.resetForm();
 
         }
         
@@ -247,6 +244,8 @@ class Admin extends Component {
             this.state.gender = '';            
             this.state.rabat = '';
             this.state.instock = '';
+            this.setState({addNewProduct: false,
+            editProduct: false})
 
     }
 
@@ -264,10 +263,7 @@ class Admin extends Component {
             </button>
             &nbsp;
             {isNew === true &&
-            <button className="btn btn-danger" type="button" onClick={()=> this.setState(
-                {addNewProduct: false,
-                editProduct: false})}
-                >
+            <button className="btn btn-danger" type="button" onClick={this.resetForm.bind(this)}>
                 Cancel
             </button>
         
