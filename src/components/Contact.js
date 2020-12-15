@@ -16,11 +16,11 @@ class Contact extends Component {
     }
     render() {
         return (
-            <section>
-                <div className="logos">
+            <section  className="smoke-bg">
+                <div className="logos ">
                     <Brand />
                 </div>
-                <div className="smoke-bg row">
+                <div className="container  row">
 
                     <div className="offset-2 col-lg-4">
 
@@ -56,9 +56,9 @@ class Contact extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className="col-lg-6">
+                    <div >
 
-                        <img src={map} height="450px" />
+                        <img src={map} className="img-fluid" />
                     </div>
 
                 </div>
