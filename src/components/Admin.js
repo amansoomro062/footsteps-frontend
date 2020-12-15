@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Brand from './Brands';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 const api = axios.create({
@@ -11,8 +11,8 @@ const api = axios.create({
 })
 
 const imageURL = 'http://localhost:5041/images/product/';
-const genderId = '5fcd268f62563f2c9495bb3a';
-const brandId = '5fcd22db62563f2c9495bb35';
+// const genderId = '5fcd268f62563f2c9495bb3a';
+// const brandId = '5fcd22db62563f2c9495bb35';
 
 
 

@@ -19,7 +19,8 @@ code {
 }
 .nav-dark {
   background-color: #252c36;
-  height: 70px;
+  height: auto;
+  
 }
 .text-white {
   color: white;
@@ -60,11 +61,11 @@ code {
   font-size: 14px;
 }
 .slider{
-  height: 600px;
+  height: auto;
   background-color: #f7f6f1;
 }
 .logos{
-  height: 100px;
+  height: auto;
   background-color: white;
   width: 100%;
   box-shadow:  0 0 20px -10px;

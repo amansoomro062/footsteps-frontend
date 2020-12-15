@@ -45,16 +45,15 @@ class Slider extends Component {
             <section className="slider">
                 <Slide>
                     <div className="each-slide">
-                        <div style={{ 'backgroundImage': `url(${this.state.image1})` }} key={this.state.image1}>
-                        </div>
+                        <img src={this.state.image1} className="img-fluid" /> 
                     </div>
                     <div className="each-slide">
-                        <div style={{ 'backgroundImage': `url(${this.state.image2})` }} key={this.state.image1}>
-                        </div>
+                        
+                    <img src={this.state.image2} className="img-fluid" /> 
                     </div>
                     <div className="each-slide">
-                        <div style={{ 'backgroundImage': `url(${this.state.image3})` }} key={this.state.image1}>
-                        </div>
+                        
+                    <img src={this.state.image3} className="img-fluid" /> 
                     </div>
                 </Slide>
             </section>

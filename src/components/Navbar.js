@@ -21,7 +21,6 @@ class Navbar extends Component {
                         <FontAwesomeIcon icon={faCcAmex} size="2x" className="icon-padding"/>
                     </div>
                     <div className="offset-2 col-lg-4">
-                        
                         <FontAwesomeIcon icon={faTwitter} size="2x" className="icon-padding"/>
                         <FontAwesomeIcon icon={faFacebookSquare} size="2x" className="icon-padding"/>
                         <FontAwesomeIcon icon={faLinkedin} size="2x" className="icon-padding"/>
@@ -32,13 +31,15 @@ class Navbar extends Component {
                         <FontAwesomeIcon icon={faDigg} size="2x" className="icon-padding"/>
                     </div>
                 </div>
+
+                
+
                 <div className="col-lg-12 nav-dark">
                     <div className="row">
                         <div className="offset-1 col-lg-4 text-white">
                             <img src={brand} className="nav-brand" />
                         </div>
-                        
-                        <div className="col-lg-7">
+                        <div className="col-lg-7 ">
                             <ul className="menu">
                                 <li className="menu-item ">
                                     <Link to="/" style={{ textDecoration: 'none',color: 'whitesmoke' }}>
